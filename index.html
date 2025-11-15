@@ -1,208 +1,48 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>拓扑空间</title>
-    <style>
-      body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Helvetica, Arial, sans-serif;
-        line-height: 1.6;
-        color: #333;
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .definition {
-        background-color: #f0f7ff;
-        border-left: 4px solid #0066cc;
-        padding: 10px 15px;
-        margin: 15px 0;
-      }
-      .warning {
-        background-color: #fff8e6;
-        border-left: 4px solid #ffcc00;
-        padding: 10px 15px;
-        margin: 15px 0;
-      }
-      .quote {
-        background-color: #f9f9f9;
-        border-left: 4px solid #ccc;
-        padding: 10px 15px;
-        margin: 15px 0;
-      }
-      img {
-        margin: 10px 0;
-        border: 1px solid #eee;
-      }
-      h3 {
-        color: #2c3e50;
-        margin-top: 25px;
-      }
-    </style>
-    <!-- 引入MathJax用于渲染数学公式 -->
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      // 配置MathJax以支持单$符号包裹的行内公式
-      window.MathJax = {
-        tex: {
-          inlineMath: [
-            ["$", "$"],
-            ["\\(", "\\)"],
-          ],
-        },
-        svg: {
-          fontCache: "global",
-        },
-      };
-    </script>
-  </head>
-  <body>
-    <p>
-      拓扑空间的定义经历了很长时间才形成。看上去有些抽象，但当你用不同的方法构造拓扑空间时会对它有更好的理解
-    </p>
+拓扑空间的定义经历了很长时间才形成。看上去有些抽象，但当你用不同的方法构造拓扑空间时会对它有更好的理解
 
-    <div class="definition">
-      <h3>拓扑(topology)、拓扑空间(topological space)</h3>
-      <p>
-        集合 $X$ 上的一<strong>拓扑(topology)</strong>是 $X$ 的子集族
-        $\mathcal{T}$ ，满足
-      </p>
-      <ol>
-        <li>（空集全集在）$\varnothing、X\in\mathcal{T}$</li>
-        <li>
-          （对任意并和有限交封闭）$\mathcal{T}$
-          中任意元素的并、有限元素的交在$\mathcal{T}$中
-        </li>
-      </ol>
-      <p>
-        一指定了拓扑 $\mathcal{T}$ 的集合 $X$ （即$(X,T)$）称一<strong
-          >拓扑空间(topological space)</strong
-        >
-      </p>
-      <p>（无歧义时可不提 $\mathcal{T}$ ，说 $X$ 上的一拓扑空间）</p>
-    </div>
+> [!拓扑(topology)、拓扑空间(topological space)]
+> 集合 $X$ 上的一**拓扑(topology)** 是 $X$ 的子集族 $\mathcal{T}$，满足
+> 1. （空集全集在）$\varnothing, X \in \mathcal{T}$
+> 2. （对任意并和有限交封闭）$\mathcal{T}$ 中任意元素的并、有限元素的交在 $\mathcal{T}$ 中
+> 一指定了拓扑 $\mathcal{T}$ 的集合 $X$（即 $(X, \mathcal{T})$）称一**拓扑空间(topological space)**
+> （无歧义时可不提 $\mathcal{T}$，说 $X$ 上的一拓扑空间）
 
-    <div class="warning">
-      <p>除非特别说明，以下默认$(X,T)$为拓扑空间</p>
-    </div>
+> [!warning] 除非特别说明，以下默认 $(X, \mathcal{T})$ 为拓扑空间
 
-    <div class="definition">
-      <h3>开集(open set)（拓扑空间中的元素）</h3>
-      <p>
-        $U\subseteq X$ 是 $X$ 中的 <strong>开集(open set)</strong> 若
-        $U\in\mathcal{T}$
-      </p>
-    </div>
+> [!开集(open set)（拓扑空间中的元素）]
+> $U \subseteq X$ 是 $X$ 中的 **开集(open set)** 若 $U \in \mathcal{T}$
 
-    <div class="warning">
-      <h3>拓扑空间定义的开集表述</h3>
-      <p>用开集的定义，可以说：</p>
-      <p>一集合 $X$ 连同它的子集(称开集)的一族是拓扑空间，若</p>
-      <ol>
-        <li>$\varnothing$ 和 $X$ 是开集</li>
-        <li>开集的任意并、有限交是开集</li>
-      </ol>
-    </div>
+> [!warning] 拓扑空间定义的开集表述
+> 用开集的定义，可以说：
+> 一集合 $X$ 连同它的子集(称开集)的一族是拓扑空间，若
+> 1. $\varnothing$ 和 $X$ 是开集
+> 2. 开集的任意并、有限交是开集
 
-    <div class="quote">
-      <h3>EX</h3>
-      <p>$X = \{a, b, c\}$ ，以下是拓扑</p>
-      <img src="WechatIMG417 1.jpg" width="80" height="" alt="" />
-      <p>（只有两个开集 $X$ 和 $\varnothing$）</p>
-      <img
-        src="images/c1009be3ac7800375a6878a22b72eb9686de440a38e82fdcd746b2eb39c09553.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/fd13f2d2102645cdc9723d1ec068ab748ec1aa095599c6078ca0349ddbcf5b03.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/aefa90c7ea8d7e717935bc14f2a810c79dd7d5ee28ce5a46cb8ae4efc1a520c8.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/2a8b6b1870caaa8ac87ee613188e2c32dee4362231984d6eaad9fa826237d872.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/9a48c9ea3e6facc4b5432bd5ef2f764146454152d97df799fc60655da5f820fb.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/87b5a63d77bc554692e33e3d21fed0e3491f84fb1789f259ef899d936481f69b.jpgg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <p>
-        （开集是 $X$ ， $\varnothing$ ， $\{a, b\}$ ， $\{b\}$ 和 $\{b, c\}$）
-      </p>
-      <img
-        src="images/827cbc68d2718167bb066ba4aaa858075ac73c84820612cec6b162f7a033dcae.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/491a186cf42b2a60cae576c9cf56fac19956caf4c469e82a4055689225a7bc68.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <p>（开集是 $X$ 的所有子集）</p>
-      <p>下面不是一个拓扑</p>
-      <img
-        src="images/cff79412020694b2bf2a6f810e60de587a78e38ee543c86d3e792b2c6eee39fc.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-      <img
-        src="images/2a660b814742f8439ad5b6854c66a2b17b51fa01358a47f6fae88f77e53186fa.jpg"
-        width="80"
-        height=""
-        alt=""
-      />
-    </div>
+> [!quote] EX
+> $X = \{a, b, c\}$，以下是拓扑
+> <img src="WechatIMG417 1.jpg" width="80" alt="">
+> （只有两个开集 $X$ 和 $\varnothing$）
+> <img src="images/c1009be3ac7800375a6878a22b72eb9686de440a38e82fdcd746b2eb39c09553.jpg" width="80" alt="">
+> <img src="images/fd13f2d2102645cdc9723d1ec068ab748ec1aa095599c6078ca0349ddbcf5b03.jpg" width="80" alt="">
+> <img src="images/aefa90c7ea8d7e717935bc14f2a810c79dd7d5ee28ce5a46cb8ae4efc1a520c8.jpg" width="80" alt="">
+> <img src="images/2a8b6b1870caaa8ac87ee613188e2c32dee4362231984d6eaad9fa826237d872.jpg" width="80" alt="">
+> <img src="images/9a48c9ea3e6facc4b5432bd5ef2f764146454152d97df799fc60655da5f820fb.jpg" width="80" alt="">
+> <img src="images/87b5a63d77bc554692e33e3d21fed0e3491f84fb1789f259ef899d936481f69b.jpgg" width="80" alt>（开集是 $X$，$\varnothing$，$\{a, b\}$，$\{b\}$ 和 $\{b, c\}$）
+> <img src="images/827cbc68d2718167bb066ba4aaa858075ac73c84820612cec6b162f7a033dcae.jpg" width="80" alt="">
+> <img src="images/491a186cf42b2a60cae576c9cf56fac19956caf4c469e82a4055689225a7bc68.jpg" width="80" alt="">
+> （开集是 $X$ 的所有子集）
+> 下面不是一个拓扑
+> <img src="images/cff79412020694b2bf2a6f810e60de587a78e38ee543c86d3e792b2c6eee39fc.jpg" width="80" alt="">
+> <img src="images/2a660b814742f8439ad5b6854c66a2b17b51fa01358a47f6fae88f77e53186fa.jpg" width="80" alt="">
 
-    <div class="quote">
-      <h3>离散拓扑的存在性</h3>
-      <p>$X$ 为任意的一个集合， $\mathcal{P}(X)$ 是 $X$ 的一个拓扑</p>
-    </div>
+> [!quote] 离散拓扑的存在性
+> $X$ 为任意的一个集合，$\mathcal{P}(X)$ 是 $X$ 的一个拓扑
 
-    <div class="definition">
-      <h3>离散拓扑（discrete topology）</h3>
-      <p>$\mathcal{P}(X)$称<strong>离散拓扑（discrete topology）</strong></p>
-    </div>
+> [!离散拓扑（discrete topology）]
+> $\mathcal{P}(X)$ 称**离散拓扑（discrete topology）**
 
-    <div class="quote">
-      <h3>平庸拓扑的存在性</h3>
-      <p>$\{X,\varnothing\}$ 是 $X$ 的一个拓扑</p>
-    </div>
+> [!quote] 平庸拓扑的存在性
+> $\{X, \varnothing\}$ 是 $X$ 的一个拓扑
 
-    <div class="definition">
-      <h3>
-        平庸拓扑（平凡拓扑）（trivial topology）（密着拓扑（indiscrete
-        topology））
-      </h3>
-      <p>
-        $\{X,\varnothing\}$称
-        <strong>密着拓扑（indiscrete topology）</strong> 或
-        <strong>平庸拓扑（平凡拓扑）（trivial topology）</strong>
-      </p>
-    </div>
-  </body>
-</html>
+> [!平庸拓扑（平凡拓扑）（trivial topology）（密着拓扑（indiscrete topology））]
+> $\{X, \varnothing\}$ 称 **密着拓扑（indiscrete topology）** 或 **平庸拓扑（平凡拓扑）（trivial topology）**
